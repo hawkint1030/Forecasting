@@ -21,9 +21,9 @@ The instructor reserves the right to change the dates and topics as seen fit. Pr
 |          |                  | |            |
 | 3         |                  | [Exploring & Visualizing Time Series](Lectures/2.Exploring%20&%20Visualizing%20Time%20Series/2-Visualizing-Time-Series.pdf)    |  [HW Solution Template - pdf](Homework/Solution_Template/Homework_Solution_Template.pdf) <p> [HW Solution Template - Rmd](Homework/Solution_Template/Homework_Solution_Template.Rmd) <p> [HW\#1 - pdf](Homework/Homework1/Homework1_S2020.pdf) <p> [HW\#1 - Rmd](Homework/Homework1/Homework1_S2020.Rmd) <p> Solution (coming soon) |
 |           |                  |                                         |            |
-|          |                  | **Topic 3: Evaluation of Basic Forecasting Methods** |            |
+|          |                  | **Topic 3: Evaluation of Basic Forecasting Models** |            |
 |           |                  |                                         |            |
-| 4         |                  | Evaluation of Basic Forecasting Methods |  [HW\#2 - pdf](Coming soon) <p> [HW\#2 - Rmd](coming Soon) <p> Solution (coming Soon)           |
+| 4         |                  |[Evaluation of Basic Forecasting Methods](Lectures/3.Evaluation of Basic Forecasting Models/3.Evaluation-of-Basic-Forecasting-Models.pdf)  |  [HW\#2 - pdf](Coming soon) <p> [HW\#2 - Rmd](coming Soon) <p> Solution (coming Soon)           |
 |           |                  |                                         |            |
 |           |                  | **Topic 4: Time Series Regressions**    |            |
 |           |                  |                                         |            |
