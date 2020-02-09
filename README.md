@@ -23,7 +23,7 @@ The instructor reserves the right to change the dates and topics as seen fit. Pr
 |           |                  |                                         |            |
 |          |                  | **Topic 3: Evaluation of Basic Forecasting Models** |            |
 |           |                  |                                         |            |
-| 4         |                  |[Evaluation of Basic Forecasting Models](Lectures/3.Evaluation of Basic Forecasting Models/3.Evaluation-of-Basic-Forecasting-Models.pdf)  | [HW\#2 - pdf](Coming soon) <br> [HW\#2 - Rmd](coming Soon) <br> Solution (coming Soon)            |
+| 4         |                  |[Evaluation of Basic Forecasting Models](Lectures/3.Evaluation%20of%20Basic%20Forecasting%20Models/3.Evaluation-of-Basic-Forecasting-Models.pdf)  | [HW\#2 - pdf](Coming soon) <br> [HW\#2 - Rmd](coming Soon) <br> Solution (coming Soon)            |
 |           |                  |                                         |            |
 |           |                  | **Topic 4: Time Series Regressions**    |            |
 |           |                  |                                         |            |
