@@ -1,0 +1,113 @@
+---
+title: 'AAEC 4984/5984 -- Applied Economic Forecasting'
+        
+author: __Master Key__
+date: "Homework #1 -- Spring 2020"
+output: 
+  pdf_document:
+          keep_tex: no
+header-includes:
+ \usepackage{float}
+geometry: margin=0.8in
+---
+
+```{r setup, include=FALSE}
+library(fpp2)
+library(ggplot2)
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(fig.pos = 'H') #Fixes the position of my graphs to where I included them in the document
+```
+The purpose of this assignment is to enhance your understanding of time series graphics and data pattern. It is intended to be rather straightforward and simple.
+
+**Instructions**: In all cases, please ensure that your graphs and visuals have properly titles and axes labels, where necessary. Recall that you can use `help()` to find out about the data in each series. For your convenience, I have posted my R markdown file on our course website so that you can open and alter as you see fit. Refer to the output, whenever appropriate, when discussing the results
+
+# Question 1: Visualizing Time Series Data
+
+Create time plots of the following time series: `bicoal`, `chicken`, `dole`, `usdeaths`, `lynx`, `goog`, `writing`, `fancy`, `a10`, `h02`. 
+
+- To allow multiple graphs on your page, please arrange your plots as grids. Below, I have provided the base code to achieve this (Note: you will need to install the `gridExtra` package before calling the `grid.arrange` command):
+
+
+```{r Q1plots,  include=TRUE, fig.align="center",fig.show='hold',fig.height=9,out.width="\\textwidth",,tidy=TRUE, tidy.opts=list(width.cutoff=80)}
+#Please feel free to edit accordingly!
+g1 <- autoplot(bicoal) + ggtitle("Annual bituminous coal production") + labs(x ="" , y = "  ")
+g2 <- autoplot(chicken) + ggtitle("Price of chicken in US ") + labs(x ="" , y = "  ")
+g3 <- autoplot(dole) + ggtitle("Monthly total of people on unemployment benefits in Australia")+labs(x ="" , y = "  ")
+g4 <- autoplot(usdeaths) + ggtitle("Monthly accidental deaths in USA") + labs(x ="" , y = "  ")
+g5 <- autoplot(lynx) + ggtitle("Annual bituminous coal production")+ labs(x ="" , y = "  ")
+g6 <- autoplot(goog) + ggtitle("Daily closing stock prices of Google") + labs(x ="" , y = "  ")
+g7 <- autoplot(writing) + ggtitle("Sales for printing and writing paper") + labs(x ="" , y = "  ")
+g8 <- autoplot(fancy) + ggtitle("Monthly sales for a souvenir shop") + labs(x ="" , y = "  ")
+g9 <- autoplot(a10) + ggtitle("Monthly anti-diabetic drug sales in Australia") + labs(x ="" , y = "  ")
+g10 <- autoplot(h02) + ggtitle("Monthly corticosteroid drug sales") + labs(x ="" , y = "  ")
+
+gridExtra::grid.arrange(g1,g2,g3,g4,g5,g6,g7,g8,g9,g10, nrow=5,ncol=2,newpage=TRUE)
+```
+
+
+# Question 2: Assessing Seasonality
+
+i. Use the `ggseasonplot()`, `ggsubseriesplot()`, and `ggAcf`\footnote{It might be useful to set the max lag in the ACF to 36 so that you can see a fair bit of the patterns in the correlogram.} functions to explore possible seasonality in the following time series: `writing`, `fancy`, `a10`, `h02`.
+
+```{r Q2plots, include=TRUE, fig.align="center",fig.height=6, out.width="\\textwidth", fig.cap="Seasonal plot of selected series",tidy=TRUE,tidy.opts=list(width.cutoff=70)}
+gg1 <- ggseasonplot(writing) + theme(legend.position="bottom", legend.text=element_text(size=6))
+gg2 <- ggseasonplot(fancy) + theme(legend.position="bottom", legend.text=element_text(size=6))
+gg3 <- ggseasonplot(a10) + theme(legend.position="bottom", legend.text=element_text(size=6))
+gg4 <- ggseasonplot(h02) + theme(legend.position="bottom", legend.text=element_text(size=6))
+gridExtra::grid.arrange(gg1,gg2,gg3,gg4, nrow=2,ncol=2)
+```
+```{r Q2plotsb, include=TRUE, fig.align="center",fig.height=6, out.width="\\textwidth", fig.cap="Subseries plot of selected series",tidy=TRUE,tidy.opts=list(width.cutoff=70)}
+gg1 <- ggsubseriesplot(writing)
+gg2 <- ggsubseriesplot(fancy) 
+gg3 <- ggsubseriesplot(a10) 
+gg4 <- ggsubseriesplot(h02) 
+gridExtra::grid.arrange(gg1,gg2,gg3,gg4, nrow=2,ncol=2)
+```
+```{r Q2plotsc, include=TRUE, fig.align="center",fig.height=6, out.width="\\textwidth", fig.cap="ACF plot of selected series",tidy=TRUE,tidy.opts=list(width.cutoff=70)}
+gg1 <- ggAcf(writing,lag.max=36) 
+gg2 <- ggAcf(fancy,lag.max = 36) 
+gg3 <- ggAcf(a10,lag.max = 36) 
+gg4 <- ggAcf(h02,lag.max = 36) 
+gridExtra::grid.arrange(gg1,gg2,gg3,gg4, nrow=2,ncol=2)
+```
+
+
+ii. What can you say about the seasonal patterns?
+
+**Answer: From the plots, we notice that there is clear seasonality across all three chart types. In Figure \ref{fig:Q2plots}, we notice that the month of August is persistently lowest for the writing series. This is confirmed by Figure \ref{fig:Q2plotsb} where the mean for the month of August is lower than all the other months. The `ho2` series has a similar pattern for the month of February but trends upwards for all the other months. The ACFs in Figure \ref{fig:Q2plotsc} confirms that there is indeed seasonality at the monthly frequency because there is a spike at the 12th (and multiples of 12) lag in all the data series. Our `a10` series displays a strong trend as well.**
+
+iii. Can you identify any unusual years?
+
+**Answer: In December, 1992 the monthly sales for a souvenir shop increased dramatically compared to the same month of the last year. We could see this a bit easier if we included the `polar=TRUE` command in the `ggseasonplot`. It is OK if you didn't notice this!**
+
+# Question 3: White Noise
+
+`dj` contains 292 consecutive trading days of the Dow Jones Index. 
+
+i. Plot this series and its ACF. Comment on any pattern noticed in both. Does this series look like white noise?
+
+```{r Q3plot, include=TRUE, fig.show = "hold", out.width="\\textwidth", fig.cap= "Time Plot \\& ACF of the Dow-Jones Index"}
+dj1 <- autoplot(dj,col="blue4") + ggtitle("Daily Dow-Jones index") + labs(x="",y="")
+dj2 <- ggAcf(dj, col="red") + ggtitle("ACF: Daily Dow-Jones index")
+
+gridExtra::grid.arrange(dj1,dj2)
+```
+
+**Answer: There is a general upward trend in the Dow-Jones Index (see Figure \ref{fig:Q3plot}). This is confirmed by the slowly decaying ACF in Figure \ref{fig:Q3plot}. Clearly, this series is not WN.**
+
+ii. Now, use `ddj <- diff(dj)` to compute the daily changes in the index. 
+```{r}
+ddj <- diff(dj)
+```
+
+
+iii. Plot `ddj` and its ACF. Do the changes in the Dow Jones Index look like white noise?
+
+```{r Q3plotb, include=TRUE, fig.show = "hold", out.width="\\textwidth", fig.cap= "Time Plot \\& ACF of the Differenced Dow-Jones Index"}
+ddj1 <- autoplot(ddj,col="blue4") + ggtitle("Differenced Daily Dow-Jones index") + labs(x="",y="")
+ddj2 <- ggAcf(ddj, col="red") + ggtitle("ACF: Differenced Daily Dow-Jones index")
+
+gridExtra::grid.arrange(ddj1,ddj2)
+```
+
+**Answer: Figure \ref{fig:Q3plotb} indicates that the series can be WN. More than 95% of the autocorrelations lie within the CI.**
