@@ -27,7 +27,7 @@ The instructor reserves the right to change the dates and topics as seen fit. Pr
 |           |                  |                                         |            |
 |           |                  | **Topic 4: Time Series Regressions**    |            |
 |           |                  |                                         |            |
-|5          |                  | Time Series Regressions                 | [HW\#3 - pdf](coming soon) <br> [HW\#3 - Rmd](coming Soon) <br> Solution (coming Soon)           |
+|5          |                  | [Time Series Regressions](Lectures/4.Time%20Series%20Regressions/4.Time_Series_Regressions.pdf)                 | [HW\#3 - pdf](coming soon) <br> [HW\#3 - Rmd](coming Soon) <br> Solution (coming Soon)           |
 |           |                  |                                         |            |
 |           |                  | **Topic 5: Time Series Decomposition**  |            |
 |           |                  |                                         |            |
