@@ -23,11 +23,11 @@ The instructor reserves the right to change the dates and topics as seen fit. Pr
 |           |                  |                                         |            |
 |          |                  | **Topic 3: Evaluation of Basic Forecasting Models** |            |
 |           |                  |                                         |            |
-| 4         |                  |[Evaluation of Basic Forecasting Models](Lectures/3.Evaluation%20of%20Basic%20Forecasting%20Models/3.Evaluation-of-Basic-Forecasting-Models.pdf)  | [HW\#2 - pdf](Homework/Homework2/Homework2_S2020.pdf) <br> [HW\#2 - Rmd](Homework/Homework2/Homework2_S2020.Rmd) <br> [Solution](Homework/Homework2/Homework2_S2020_solutions.Rmd)            |
+| 4         |                  |[Evaluation of Basic Forecasting Models](Lectures/3.Evaluation%20of%20Basic%20Forecasting%20Models/3.Evaluation-of-Basic-Forecasting-Models.pdf)  | [HW\#2 - pdf](Homework/Homework2/Homework2_S2020.pdf) <br> [HW\#2 - Rmd](Homework/Homework2/Homework2_S2020.Rmd) <br> [Solution](Homework/Homework2/Homework2_S2020_Solutions.Rmd)            |
 |           |                  |                                         |            |
 |           |                  | **Topic 4: Time Series Regressions**    |            |
 |           |                  |                                         |            |
-|5          |                  | [Time Series Regressions](Lectures/4.Time%20Series%20Regressions/4.Time_Series_Regressions.pdf)                 | [HW\#3 - pdf](coming soon) <br> [HW\#3 - Rmd](coming Soon) <br> Solution (coming Soon)           |
+|5          |                  | [Time Series Regressions](Lectures/4.Time%20Series%20Regressions/4.Time_Series_Regressions.pdf)                 | [HW\#3 - pdf](Homework/Homework3/Homework3_S2020.pdf) <br> [HW\#3 - Rmd](Homework/Homework3/Homework3_S2020.Rmd) <br> Solution (coming Soon)           |
 |           |                  |                                         |            |
 |           |                  | **Topic 5: Time Series Decomposition**  |            |
 |           |                  |                                         |            |
