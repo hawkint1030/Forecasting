@@ -1,0 +1,87 @@
+---
+title: "R Notebook: Manual Decomposition of Time Series Data"
+output: 
+  html_notebook: 
+    toc: true
+    toc_float: true
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+```{r setup, echo=FALSE}
+rm(list=ls())
+library(fpp2)
+```
+
+## Introduction
+
+The purpose of this document is to explore how we can manually decompose and additive time series data.
+
+## Data
+We will be using the elec data for this analysis.
+
+```{r, echo = TRUE}
+autoplot(elec)
+```
+
+## Procedure for decomposing the series
+
+**Step 1: Detect the trend using a centered Moving Average**
+```{r}
+Trend <- ma(elec, order = 12, centre = TRUE)
+autoplot(cbind(elec,Trend),facets = TRUE)
+```
+
+**Step 2: Detrend the Series**
+
+```{r}
+elec_detrend <- elec - Trend
+autoplot(elec_detrend)
+```
+
+**Step 3: Get the average seasonlity across time.**
+
+Easy way:
+(i) Drop NA's and get the seasonal averages using a loop
+```{r}
+avg <- NULL
+
+for (i in 1:12){
+avg[i] <- mean(subset(elec_detrend,month = i),na.rm = TRUE)
+}
+avg
+```
+
+(ii) Replicate the Averages to match the number of years of the original data
+```{r}
+Seasonal <- ts(rep(avg,40), start=c(1956,1), frequency = 12)
+```
+
+(iii) Recall that we lost the first and last 6 observations to the centered MA so we will set them to NAs
+```{r}
+Seasonal[1:6] <- NA -> Seasonal[(length(Seasonal)-5):length(Seasonal)]
+# Notice that I am able to assign the NA to two things at once
+
+autoplot(Seasonal) 
+```
+
+**Step 4: Get the Remainder Component**
+
+$$Y_t = S_t + T_t + R_t \Longrightarrow Y_t - S_t - T_t = R_t$$
+```{r}
+Remainder. <- elec - Trend - Seasonal
+
+autoplot(Remainder.)
+```
+
+## Model Comparisions
+
+Now we can finish by ploting all the components together
+```{r, fig.align= "center"}
+# Manually:
+g1 <- autoplot(cbind(elec,Trend,Seasonal, Remainder.), facets = TRUE) + ylab("")
+# Using the Package: 
+g2 <- autoplot(stl(elec,s.window = "periodic")) 
+gridExtra::grid.arrange(g1,g2, ncol=2)
+```
+
