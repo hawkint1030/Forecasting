@@ -31,7 +31,7 @@ The instructor reserves the right to change the dates and topics as seen fit. Pr
 |           |                  |                                         |            |
 |           |                  | **Topic 5: Time Series Decomposition**  |            |
 |           |                  |                                         |            |
-|6          |                  | Time Series Decomposition               | [HW\#4 - pdf](coming soon) <br> [HW\#4 - Rmd](coming Soon) <p> Solution (coming Soon)           |
+|6          |                  | [Time Series Decomposition](Lectures/5.Time%20Series%20Decomposition/5.Time_Series_Decomposition.pdf)               | [HW\#4 - pdf](coming soon) <br> [HW\#4 - Rmd](coming Soon) <p> Solution (coming Soon)           |
 |           |                  |                                         |            |
 |           |                  | **Topic 6: Exponential Smoothing & Moving Averages**    |            |
 |           |                  |                                         |            |
